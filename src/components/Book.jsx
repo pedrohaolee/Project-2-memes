@@ -3,15 +3,35 @@ import styles from "./Book.module.css";
 import UpdateModal from "./UpdateModal";
 const Book = (props) => {
   // const [showUpdateModal, setShowUpdateModal] = useState(false);
+
   const favMeme = async () => {
-    const res = await fetch(
-      import.meta.env.VITE_SERVER + "/lesson/books/" + props.id,
-      { method: "DELETE", headers: { "Content-Type": "application/json" } }
-    );
-    if (!res.ok) {
-      throw new Error("error deleting book");
+    try {
+      const res = await fetch(import.meta.env.VITE_AIRTABLE, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_APIKEY}`,
+        },
+        body: JSON.stringify({
+          records: [
+            {
+              fields: {
+                Name: props.name,
+                Url: props.url,
+                Height: props.height,
+                Width: props.width,
+              },
+            },
+          ],
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("fav meme error");
+      }
+    } catch (err) {
+      console.log(err.message);
     }
-    props.getData();
   };
 
   return (

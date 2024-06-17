@@ -1,24 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
-import Book from "./Book";
+import BookFav from "./BookFav";
 
-const Display = () => {
-  const [memes, setMemes] = useState([]);
+const DisplayFav = () => {
+  const [memesFav, setMemesFav] = useState([]);
   // let memeList = useRef([]);
   // const [title, setTitle] = useState("");
   // const [author, setAuthor] = useState("");
   // const [year, setYear] = useState("");
 
-  const getMemes = async () => {
+  const getMemesFav = async () => {
     try {
-      const res = await fetch(import.meta.env.VITE_SERVER);
+      const res = await fetch(import.meta.env.VITE_AIRTABLEGET, {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_APIKEY}`,
+        },
+      });
       if (!res.ok) {
-        throw new Error("fetch memes error");
+        throw new Error("fetch fav memes error");
       }
       const data = await res.json();
-      // console.log("This is data");
-      // console.log(memes);
-      const selectedMemes = selectRandomMemes(data.data.memes, 3);
-      setMemes(selectedMemes);
+      console.log("This is data");
+      console.log(data.records);
+      //   console.log(typeof data.fields);
+      setMemesFav(data.records);
       // console.log("This is memes");
       // console.log(memes);
       // memeList = memes.data.memes;
@@ -27,11 +31,6 @@ const Display = () => {
     } catch (err) {
       console.log(err.message);
     }
-  };
-
-  const selectRandomMemes = (memesArray, count) => {
-    const shuffledMemes = memesArray.sort(() => 0.5 - Math.random());
-    return shuffledMemes.slice(0, count);
   };
 
   // const favMeme = async () => {
@@ -73,30 +72,30 @@ const Display = () => {
   // };
 
   useEffect(() => {
-    getMemes();
+    getMemesFav();
   }, []);
 
   return (
     <div className="container">
-      <h1>Meme List</h1>
+      <h1>Fav Meme List</h1>
       <div className="row">
-        <div className="col-md-3">Memes</div>
+        <div className="col-md-3">Fav Memes</div>
       </div>
-      {Array.isArray(memes) &&
-        memes.map((item) => {
+      {Array.isArray(memesFav) &&
+        memesFav.map((item) => {
           return (
-            <Book
+            <BookFav
               key={item.id}
               id={item.id}
-              name={item.name}
-              url={item.url}
-              height={item.height}
-              width={item.width}
-            ></Book>
+              name={item.fields.name}
+              url={item.fields.url}
+              height={item.fields.height}
+              width={item.fields.width}
+            ></BookFav>
           );
         })}
     </div>
   );
 };
 
-export default Display;
+export default DisplayFav;
