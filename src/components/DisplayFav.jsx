@@ -87,10 +87,11 @@ const DisplayFav = () => {
             <BookFav
               key={item.id}
               id={item.id}
-              name={item.fields.name}
-              url={item.fields.url}
-              height={item.fields.height}
-              width={item.fields.width}
+              name={item.fields.Name}
+              url={item.fields.Url}
+              height={item.fields.Height}
+              width={item.fields.Width}
+              getMemesFav={getMemesFav}
             ></BookFav>
           );
         })}

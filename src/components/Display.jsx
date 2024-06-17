@@ -17,7 +17,7 @@ const Display = () => {
       const data = await res.json();
       // console.log("This is data");
       // console.log(memes);
-      const selectedMemes = selectRandomMemes(data.data.memes, 3);
+      const selectedMemes = selectRandomMemes(data.data.memes, 5);
       setMemes(selectedMemes);
       // console.log("This is memes");
       // console.log(memes);

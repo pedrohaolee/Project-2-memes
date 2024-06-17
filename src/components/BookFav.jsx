@@ -2,21 +2,43 @@ import React from "react";
 import styles from "./Book.module.css";
 
 const BookFav = (props) => {
-  console.log(props.id);
+  const unfavMeme = async () => {
+    try {
+      const res = await fetch(
+        import.meta.env.VITE_AIRTABLE + `?records[]=${props.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_APIKEY}`,
+          },
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("unfav meme error");
+      }
+
+      props.getMemesFav();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   return (
     <>
       <div className={`row ${styles.book}`}>
-        <div className="col-sm-3">{props.id}</div>
-        {/* <img className="col-sm-3" src={props.url} />
-        <div className="col-sm-2">{props.height}</div>
-        <div className="col-sm-2">{props.width}</div> */}
+        <div className="col-sm-3">{props.name}</div>
+        <img className="col-sm-3" src={props.url} />
+        {/* <div className="col-sm-2">{props.height}</div> */}
+        {/* <div className="col-sm-2">{props.width}</div> */}
         {/* <div className="col-sm-2"></div> */}
         {/* <button className="col-sm-2" onClick={() => setShowUpdateModal(true)}>
               update
             </button> */}
-        {/* <button className="col-sm-2" onClick={favMeme}>
-              favorite
-            </button> */}
+        <button className="col-sm-2" onClick={unfavMeme}>
+          Unfavorite
+        </button>
       </div>
     </>
   );
