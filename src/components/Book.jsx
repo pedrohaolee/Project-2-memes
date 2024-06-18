@@ -3,6 +3,7 @@ import styles from "./TopMemes.module.css";
 import UpdateModal from "./UpdateModal";
 const Book = (props) => {
   // const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [isFav, setIsFav] = useState(false);
 
   const favMeme = async () => {
     try {
@@ -25,6 +26,8 @@ const Book = (props) => {
           ],
         }),
       });
+
+      setIsFav(true);
 
       if (!res.ok) {
         throw new Error("fav meme error");
@@ -58,7 +61,7 @@ const Book = (props) => {
           update
         </button> */}
         <button className={styles.favoritebutton} onClick={favMeme}>
-          favorite
+          {isFav ? <span>&#10003; Favorite</span> : <span>Favorite</span>}
         </button>
       </div>
     </>
