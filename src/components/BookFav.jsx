@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Book.module.css";
+import styles from "./TopMemes.module.css";
 
 const BookFav = (props) => {
   const unfavMeme = async () => {
@@ -27,16 +27,16 @@ const BookFav = (props) => {
 
   return (
     <>
-      <div className={`row ${styles.book}`}>
-        <div className="col-sm-3">{props.name}</div>
-        <img className="col-sm-3" src={props.url} />
+      <div className={styles.memecard}>
+        <div className={styles.memetitle}>{props.name}</div>
+        <img className={styles.memeimage} src={props.url} />
         {/* <div className="col-sm-2">{props.height}</div> */}
         {/* <div className="col-sm-2">{props.width}</div> */}
         {/* <div className="col-sm-2"></div> */}
         {/* <button className="col-sm-2" onClick={() => setShowUpdateModal(true)}>
               update
             </button> */}
-        <button className="col-sm-2" onClick={unfavMeme}>
+        <button className={styles.unfavoritebutton} onClick={unfavMeme}>
           Unfavorite
         </button>
       </div>

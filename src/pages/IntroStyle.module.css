@@ -1,0 +1,83 @@
+/* General styles for the body */
+introbody {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #f9f9f9, #e3e3e3);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container for the intro text */
+.introcontainer {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Main heading style */
+introh1 {
+  font-size: 1.5em;
+  color: #4caf50; /* Primary color */
+  margin-bottom: 20px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+/* Add some fancy text styles */
+introh1 span {
+  display: block;
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Hover effects for the container */
+.introcontainer:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effects for the heading */
+.introcontainer:hover h1 {
+  color: #388e3c;
+}
+
+/* Hover effects for the span inside the heading */
+.introcontainer:hover h1 span {
+  color: #777;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .introcontainer {
+    padding: 15px 20px;
+  }
+
+  introh1 {
+    font-size: 1.2em;
+  }
+}

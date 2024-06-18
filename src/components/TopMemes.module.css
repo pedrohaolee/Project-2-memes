@@ -1,0 +1,89 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.topmemes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.memecard {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memecard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.memeimage {
+  width: 100%;
+  height: 300px;
+  display: block;
+}
+
+.memetitle {
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.favoritebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.favoritebutton:hover {
+  background-color: #d63518;
+}
+
+.unfavoritebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: #c12424;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.unfavoritebutton:hover {
+  background-color: #3ada1e;
+}

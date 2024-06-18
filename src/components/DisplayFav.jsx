@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import BookFav from "./BookFav";
+import styles from "./TopMemes.module.css";
 
 const DisplayFav = () => {
   const [memesFav, setMemesFav] = useState([]);
@@ -76,11 +77,7 @@ const DisplayFav = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Fav Meme List</h1>
-      <div className="row">
-        <div className="col-md-3">Fav Memes</div>
-      </div>
+    <div className={styles.topmemes}>
       {Array.isArray(memesFav) &&
         memesFav.map((item) => {
           return (

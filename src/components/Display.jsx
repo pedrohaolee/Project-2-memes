@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Book from "./Book";
+import styles from "./TopMemes.module.css";
 
 const Display = () => {
   const [memes, setMemes] = useState([]);
@@ -17,7 +18,7 @@ const Display = () => {
       const data = await res.json();
       // console.log("This is data");
       // console.log(memes);
-      const selectedMemes = selectRandomMemes(data.data.memes, 5);
+      const selectedMemes = selectRandomMemes(data.data.memes, 20);
       setMemes(selectedMemes);
       // console.log("This is memes");
       // console.log(memes);
@@ -77,11 +78,7 @@ const Display = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Meme List</h1>
-      <div className="row">
-        <div className="col-md-3">Memes</div>
-      </div>
+    <div className={styles.topmemes}>
       {Array.isArray(memes) &&
         memes.map((item) => {
           return (
