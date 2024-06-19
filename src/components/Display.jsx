@@ -4,10 +4,6 @@ import styles from "./TopMemes.module.css";
 
 const Display = () => {
   const [memes, setMemes] = useState([]);
-  // let memeList = useRef([]);
-  // const [title, setTitle] = useState("");
-  // const [author, setAuthor] = useState("");
-  // const [year, setYear] = useState("");
 
   const getMemes = async () => {
     try {
@@ -16,15 +12,8 @@ const Display = () => {
         throw new Error("fetch memes error");
       }
       const data = await res.json();
-      // console.log("This is data");
-      // console.log(memes);
       const selectedMemes = selectRandomMemes(data.data.memes, 30);
       setMemes(selectedMemes);
-      // console.log("This is memes");
-      // console.log(memes);
-      // memeList = memes.data.memes;
-      // console.log("This is memes list");
-      // console.log(memeList[1]);
     } catch (err) {
       console.log(err.message);
     }
@@ -34,44 +23,6 @@ const Display = () => {
     const shuffledMemes = memesArray.sort(() => 0.5 - Math.random());
     return shuffledMemes.slice(0, count);
   };
-
-  // const favMeme = async () => {
-  //   try {
-  //     const res = await fetch(import.meta.env.VITE_AIRTABLE, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${meta.env.VITE_APIKEY}`,
-  //       },
-  //       body: JSON.stringify({
-  //         records: [
-  //           {
-  //             fields: {
-  //               Name: "Laughing Leo",
-  //               Url: "https://i.imgflip.com/4acd7j.png",
-  //               Height: 640,
-  //               Width: 1200,
-  //             },
-  //           },
-  //           {
-  //             fields: {
-  //               Name: "Domino Effect",
-  //               Url: "https://i.imgflip.com/2oo7h0.jpg",
-  //               Height: 640,
-  //               Width: 1200,
-  //             },
-  //           },
-  //         ],
-  //       }),
-  //     });
-
-  //     if (!res.ok) {
-  //       throw new Error("fav meme error");
-  //     }
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // };
 
   useEffect(() => {
     getMemes();

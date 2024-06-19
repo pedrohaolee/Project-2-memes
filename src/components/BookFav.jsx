@@ -30,12 +30,6 @@ const BookFav = (props) => {
       <div className={styles.memecard}>
         <div className={styles.memetitle}>{props.name}</div>
         <img className={styles.memeimage} src={props.url} />
-        {/* <div className="col-sm-2">{props.height}</div> */}
-        {/* <div className="col-sm-2">{props.width}</div> */}
-        {/* <div className="col-sm-2"></div> */}
-        {/* <button className="col-sm-2" onClick={() => setShowUpdateModal(true)}>
-              update
-            </button> */}
         <button className={styles.unfavoritebutton} onClick={unfavMeme}>
           Unfavorite
         </button>
