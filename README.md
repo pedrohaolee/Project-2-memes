@@ -39,7 +39,7 @@ The `TopMemes` page will call the `Display` component, where the `Display` compo
 
 ### Favorite Page
 
-The `Favorite` page will call the `DisplayFav` component. The `Display` component will first fetch data from `VITE_AIRTABLE` and display the fetched data. The `getMemesFav` function is passed down to `BookFav` as a lifting state. In `BookFav`, an `Unfavorite` button is created and, once clicked, will call the `unfavMeme` function, which sends a `DELETE` method to AirTable to remove the meme specified by meme id. The lifting state `BookFav` will be called once the meme is removed from AirTable.
+The `Favorite` page will call the `DisplayFav` component. The `DisplayFav` component will first fetch data from `VITE_AIRTABLE` and display the fetched data. The `getMemesFav` function is passed down to `BookFav` as a lifting state. In `BookFav`, an `Unfavorite` button is created and, once clicked, will call the `unfavMeme` function, which sends a `DELETE` method to AirTable to remove the meme specified by meme id. The lifting state `BookFav` will be called once the meme is removed from AirTable.
 
 ## Environment Variables
 
