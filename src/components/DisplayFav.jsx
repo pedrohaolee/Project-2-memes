@@ -16,8 +16,6 @@ const DisplayFav = () => {
         throw new Error("fetch fav memes error");
       }
       const data = await res.json();
-      console.log("This is data");
-      console.log(data.records);
       setMemesFav(data.records);
     } catch (err) {
       console.log(err.message);
