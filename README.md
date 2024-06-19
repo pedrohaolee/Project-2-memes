@@ -17,7 +17,7 @@ The user can mark the meme as favorite. A check mark will show up next to the Fa
 
 ![FavoriteChecked](https://github.com/pedrohaolee/Project-2-memes/blob/main/src/FavoriteCheck.jpg)
 
-In the Favorite page, the favorite memes will show up here.
+In the `Favorite` page, the favorite memes will show up here.
 
 ![FavoredMemes](https://github.com/pedrohaolee/Project-2-memes/blob/main/src/FavMeme1.jpg)
 
