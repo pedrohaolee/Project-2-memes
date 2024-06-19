@@ -49,3 +49,11 @@ The keys used in the app `.env`:
 - `VITE_APIKEY`
 - `VITE_AIRTABLE`
 - `VITE_AIRTABLEGET`
+
+## Future Work
+
+Future work can include (if premium membership is purchased from ImgFlip):
+
+- **Search**: Search for meme templates with this API using POST method: [Search Memes API](https://api.imgflip.com/search_memes), which allows searching 1M+ templates from the Imgflip database.
+
+- **Create Memes with AI**: Generates a fresh meme from scratch using Imgflip's DNN trained on public memes: [AI Meme API](https://api.imgflip.com/ai_meme)
